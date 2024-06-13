@@ -10,7 +10,7 @@ public class DuombazesValdymas {
     final String URL = "jdbc:mysql://localhost:3306/javadarbas";
     final String USERNAME = "root";
     final String PASSWORD = "l3g10n4s";
-    public static Connection _connection;
+    public static Connection _connection;;
 
     public DuombazesValdymas(String URL, String USERNAME, String PASSWORD) throws SQLException {
         _connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
