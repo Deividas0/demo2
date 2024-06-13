@@ -7,6 +7,10 @@ public class Klientas {
     int id;
     String username;
     String password;
+    String vardas;
+    String pavarde;
+    String miestas;
+    String telNumeris;
     public static List<Klientas> klientuSarasas = new ArrayList<>();
 
 
@@ -19,6 +23,11 @@ public class Klientas {
     public int getId() {return id;}
     public String getUsername() {return username;}
     public String getPassword() {return password;}
+
+    public String getVardas() {return vardas;}
+    public String getPavarde() {return pavarde;}
+    public String getMiestas() {return miestas;}
+    public String getTelNumeris() {return telNumeris;}
 
     @Override
     public String toString(){

@@ -2,6 +2,8 @@ package com.example.manoapi.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.PreparedStatement;
@@ -39,6 +41,19 @@ public class KlientoController {
         DuombazesValdymas DV = new DuombazesValdymas();
         DV.klientoDuomenuRegistracija(vardas,pavarde,miestas,telNumeris);
         return "Kliento duomenys TURĖTŲ būti priregistruoti :)";
+    }
+    @PostMapping("/klientoRegistracijaySqlPost")
+    public Klientas registruojamKlientaYSqlPost(@RequestBody Klientas klientas) throws SQLException {
+        DuombazesValdymas DV = new DuombazesValdymas();
+        DV.klientoRegistracija(klientas.getUsername(), klientas.getPassword());
+        return null;
+    }
+    @PostMapping("/klientoDuomenuRegistracijaSqlPost")
+    public List<Klientas> klientoDuomenuRegistracija(@RequestBody List<Klientas> klientas) throws SQLException {
+        DuombazesValdymas DV = new DuombazesValdymas();
+        for(Klientas k : klientas)
+        DV.klientoDuomenuRegistracija(k.getVardas(),k.getPavarde(),k.getMiestas(), k.getTelNumeris());
+        return null;
     }
 
 }
