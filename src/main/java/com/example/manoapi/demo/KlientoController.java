@@ -49,10 +49,9 @@ public class KlientoController {
         return null;
     }
     @PostMapping("/klientoDuomenuRegistracijaSqlPost")
-    public List<Klientas> klientoDuomenuRegistracija(@RequestBody List<Klientas> klientas) throws SQLException {
+    public Klientas klientoDuomenuRegistracija(@RequestBody Klientas klientas) throws SQLException {
         DuombazesValdymas DV = new DuombazesValdymas();
-        for(Klientas k : klientas)
-        DV.klientoDuomenuRegistracija(k.getVardas(),k.getPavarde(),k.getMiestas(), k.getTelNumeris());
+        DV.klientoDuomenuRegistracija(klientas.getVardas(),klientas.getPavarde(),klientas.getMiestas(), klientas.getTelNumeris());
         return null;
     }
 

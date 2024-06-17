@@ -36,7 +36,7 @@ public class DuombazesValdymas {
     }
 
     public void klientoRegistracija(String username, String password) throws SQLException {
-        String insertSQL = "INSERT INTO klientai2 (username,password) VALUE (?, ?)";
+        String insertSQL = "INSERT INTO android_klientai (username,password) VALUE (?, ?)";
 
         // Try-with-resources to auto close connection, statement, and result set
         try (Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
@@ -48,7 +48,7 @@ public class DuombazesValdymas {
         }
     }
     public void klientoDuomenuRegistracija(String vardas, String pavarde, String miestas, String telNumeris) throws SQLException {
-        String insertSQL = "INSERT INTO kliento_duomenys (vardas,pavarde,miestas,tel_numeris) VALUE (?, ?, ?, ?)";
+        String insertSQL = "INSERT INTO android_kliento_duomenys (vardas,pavarde,miestas,tel_numeris) VALUE (?, ?, ?, ?)";
 
         // Try-with-resources to auto close connection, statement, and result set
         try (Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
